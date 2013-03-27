@@ -1,6 +1,5 @@
 package org.blanco.android.test;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;

@@ -1,28 +1,31 @@
 package org.blanco.android.test;
 
-import android.animation.LayoutTransition;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
 	LinearLayout container = null;
+	private static LayoutParams mParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+	    ViewGroup.LayoutParams.WRAP_CONTENT);
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		container = (LinearLayout) findViewById(R.id.layout_container);
-		LayoutTransition transListener = container.getLayoutTransition();
-		//transListener.setAnimator(LayoutTransition.CHANGE_APPEARING, 	new ValueAnimator());
-		
+		container = (LinearLayout) findViewById(R.id.layout_container);	
 	}
 
 	public void btnAddViewClicked(View view){
-		container.addView(new SimpleColorView(view.getContext()),0);
+	  Button btn = new Button(view.getContext());
+	  btn.setLayoutParams(mParams); btn.setText("Useless Button");
+		container.addView(btn,0);
 	}
 	
 	public void btnRemoveViewClicked(View view){
